@@ -1,0 +1,59 @@
+<app-navbar></app-navbar>
+<body>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<div class="container">
+		<form #loginForm="ngForm" (ngSubmit)="addData(loginForm.value)">
+
+			<h2 style="text-align: center; margin:10px 0 10px 0">
+				SALES FORECASTING
+			</h2>
+			
+			<div>
+				<p>This project can perform time series forecasting on the given sales dataset. Time series forecasting is a technique for predicting future events by analyzing past trends, based on the assumption
+				that future trends will hold similar to historical trends. Forecasting involves using models fit on historical data to
+				predict future values. Prediction problems that involve a time component require time series forecasting, which provides
+				a data-driven approach to effective and efficient planning. Upload the dataset below and also mention the prediction period to display the forecasted results.</p>
+			</div>
+			<p>
+				<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample"
+					aria-expanded="false" aria-controls="collapseExample">
+					Provide Input
+				</button>
+			</p>
+			<div class="collapse" id="collapseExample" style="padding: 0;">
+				<div class="card input-card" style="width: 26rem;">
+			
+				<div class="card-body">
+						<div class="form-group">
+
+							<ngx-dropzone accept="text/csv" (change)="onSelect($event)">
+								<ngx-dropzone-label>Upload CSV here</ngx-dropzone-label>
+								<ngx-dropzone-preview *ngFor="let f of files" [removable]="true" (removed)="onRemove(f)">
+									<ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+								</ngx-dropzone-preview>
+							</ngx-dropzone>
+
+							<button class="btn btn-submit" type="submit">Submit</button>
+						</div>
+						
+						
+
+				</div>
+				
+		
+				<form #dataForm="ngForm" (ngSubmit)="onPredict(dataForm.value)" *ngIf="data">
+					<div class="form-group">
+						<label for="period">Period(In days)</label><br>
+						<input type="int" name="timeperiod" class="form-control" ngModel>
+						<button class="btn btn-submit" type="submit">Submit</button>
+					</div>
+					
+				</form>
+			</div>
+			</div>
+			
+
+			
+		</form>
+</div>
+</body>

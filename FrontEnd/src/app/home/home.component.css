@@ -1,0 +1,39 @@
+body {
+    background-image: url("../../assets/bg-image.jpg");
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position: center center;
+    height: 150vh;
+    font-family: 'Times New Roman', Times, serif;
+    color: whitesmoke; 
+}
+
+.container{
+    padding: 20px;
+    font-size: 18px;
+}
+
+.input-card{
+    padding: 3rem;
+    color: black;
+    margin-left: 360px;
+    margin-top: 100px;
+}
+.collapse,.collapsing
+{
+    width: 100%;
+
+}
+
+.form-group{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.btn-submit{
+    margin-top: 20px;
+    background-color: blueviolet;
+    color: white;
+
+}
